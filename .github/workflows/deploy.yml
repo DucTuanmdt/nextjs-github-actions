@@ -1,24 +1,15 @@
-name: Deploy to VPS
-
-on:
-  push:
-    branches:
-      - main
-
+name: Deploy
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Deploy using ssh
+      - uses: actions/checkout@v1
+      - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSHKEY }}
-          port: 22
-          script: |
-            cd /usr/app
-            ls -a
-            git pull origin master
-            git status
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+          script: ls

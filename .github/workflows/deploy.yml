@@ -21,12 +21,8 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            cd /usr/app/nextjs-github-actions
-            git pull origin main
-            git status
-            npm install --only=prod
-            npm run build
-            pm2 restart nextjs-github-actions
+            cd /usr/app
+            ls -a
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           user: ${{ secrets.USERNAME }}

@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Test VPS connection (ping)
+        run: ping -c ${{ secrets.HOST }}
+
       - name: Deploy using ssh
         uses: appleboy/ssh-action@master
         with:

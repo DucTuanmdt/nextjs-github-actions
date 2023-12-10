@@ -27,4 +27,3 @@ jobs:
           port: ${{ secrets.PORT }}
           user: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY}}
-          args: "-tt -vvv"

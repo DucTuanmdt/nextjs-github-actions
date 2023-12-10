@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1>Hi there! 😎</h1>
+      <h2>I added a new line 🤩 </h2>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;

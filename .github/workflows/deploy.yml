@@ -16,7 +16,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
-          port: ${{ secrets.PORT }}
+          port: 22
           script: |
             cd ~/../usr/app/nextjs-github-actions
             git pull origin main

@@ -4,26 +4,21 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup SSH connection
-        uses: webfactory/ssh-agent@v0.5.0
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
         with:
-          ssh-private-key: ${{ secrets.SSHKEY }}
-
-      - name: Deploy
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          port: 22
+          script: |
             cd /usr/app
             ls -a
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          user: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSHKEY}}
+            git pull origin master
+            git status

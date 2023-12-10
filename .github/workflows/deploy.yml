@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Test VPS connection (ping)
-        run: ping -c ${{ secrets.HOST }}
+        run: ping ${{ secrets.HOST }}
 
       - name: Deploy using ssh
         uses: appleboy/ssh-action@master

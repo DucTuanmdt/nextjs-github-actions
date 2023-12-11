@@ -7,7 +7,6 @@ export default function Home() {
       <h1>Hi there! 😎</h1>
       <h2>I added a new line 🤩 </h2>
       <h2>One more 😫 </h2>
-      <h3>Come back 🤔 </h3>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;

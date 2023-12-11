@@ -14,10 +14,10 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSHKEY }}
+          password: ${{ secrets.PASSWORD_MDT }}
           port: 22
           script: |
-            cd /home/ec2-user/app/nextjs-github-actions
+            cd /usr/app/nextjs-github-actions
             git pull origin main
             git status
             npm install --only=prod

@@ -1,4 +1,4 @@
-name: Deploy to EC2
+name: Deploy to VPS
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/ec2-user/app/nextjs-github-actions
+            cd /usr/app/nextjs-github-actions
             git pull origin main
             git status
             npm install --only=prod

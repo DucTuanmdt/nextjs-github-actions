@@ -22,4 +22,12 @@ jobs:
             git status
             npm install --only=prod
             npm run build
-            pm2 restart nextjs-github-actions
+
+            # Check if the app is running with pm2
+            if pm2 show nextjs-github-actions > /dev/null 2>&1; then
+              # App is running, restart it
+              pm2 restart nextjs-github-actions
+            else
+              # App is not running, start it
+              pm2 start npm --name "nextjs-github-actions" -- start
+            fi
